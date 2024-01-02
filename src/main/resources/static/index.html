@@ -60,6 +60,15 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <p>Photographer and Web Designer.</p>
     <img src="images/man_smoke.jpg" alt="boy" class="w3-image" width="992" height="1108">
   </header>
+  
+  <!-- 바코드 -->
+	<button type="button">
+	  <img src="images/clickbar.jpg" alt="대체 텍스트" onclick="showPopup()" >
+	</button>
+	 <script>
+  		function showPopup() { window.open("Barcode.html", "bar", "width=800, height=300, left=100, top=50"); }
+ 	 </script>
+  
 
   <!-- About Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
@@ -123,7 +132,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 			<div id="deptView">
 				<table border="1" id="dept_table">
 					<tbody>
-						<!--					<tr>
+						<!--	<tr>
 						<td id="deptno"></td>
 						<td id="dname"></td>
 						<td i="loc"></td>
