@@ -1,7 +1,5 @@
 package com.fisa.gym.model.dto;
 
-import com.fisa.gym.model.domain.Member;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,11 +16,13 @@ import lombok.ToString;
 @Builder
 public class MemberDTO {
 	
-	private Long id;
+	private Long memberId;
+	private String memberLoginId;
+	private String memberLoginPassword;
 	private String memberName;
-	private String information;
 	
 //	public Member toEntity() {
 //		return Member.builder().id(id).name(name).build();
 //	}
 }
+
