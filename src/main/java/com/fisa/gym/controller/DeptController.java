@@ -14,7 +14,9 @@ import com.fisa.gym.exception.DeptNotFoundException;
 import com.fisa.gym.model.DeptRepository;
 import com.fisa.gym.model.domain.Dept;
 
-
+/*
+ * git push test
+ * */
 @RestController
 public class DeptController {
 
