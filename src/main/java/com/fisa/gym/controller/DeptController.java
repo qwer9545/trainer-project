@@ -54,7 +54,7 @@ public class DeptController {
 	public String deleteDept(int deptno) throws DeptNotFoundException {
 		dao.findById(deptno).orElseThrow(DeptNotFoundException::new);//로직 중지
 		dao.deleteById(deptno);//존재할 경우실행되는 라인
-		return "delete 성공";
+		return "delete 성공";   
 	}
 	
 	@ExceptionHandler(DeptNotFoundException.class)
