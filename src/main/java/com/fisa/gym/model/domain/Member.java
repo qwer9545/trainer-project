@@ -1,6 +1,5 @@
 package com.fisa.gym.model.domain;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,8 +20,8 @@ public class Member {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long memberId;
-	@Column(name = "member_name")
-	private String memberName;
-	private String information;	
+	private String memberLoginId;
+	private String memberLoginPassword;
+	private String memberName;   
 }
 
