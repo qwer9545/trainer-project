@@ -63,10 +63,18 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   
   <!-- 바코드 -->
 	<button type="button">
-	  <img src="images/clickbar.jpg" alt="대체 텍스트" onclick="showPopup()" >
+	  <img src="images/clickbar.jpg" onclick="showPopup()" >
 	</button>
 	 <script>
   		function showPopup() { window.open("Barcode.html", "bar", "width=800, height=300, left=100, top=50"); }
+ 	 </script>
+ 	 
+ 	 <!-- 로그인 -->
+	<button type="button" onclick="loginPopup()">
+	  로그인
+	</button>
+	 <script>
+  		function loginPopup() { window.open("login.html", "bar", "width=800, height=300, left=100, top=50"); }
  	 </script>
   
 
@@ -247,7 +255,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   
   <!-- Portfolio Section -->
   <div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">상암 DMC점</h2>
+    <h2 class="w3-text-light-grey">My Photos</h2>
     <hr style="width:200px" class="w3-opacity">
 
     <!-- Grid for photos -->
