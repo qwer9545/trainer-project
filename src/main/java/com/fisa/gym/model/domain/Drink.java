@@ -19,7 +19,8 @@ import lombok.ToString;
 @Table(name="drink")
 @Entity
 public class Drink {
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long drinkId;
 	private String drinkName;
 	private int drinkPrice;
