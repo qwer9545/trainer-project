@@ -1,6 +1,6 @@
 package com.fisa.gym.model.domain;
 
-import java.security.Timestamp;
+import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,30 +10,32 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-//@Table(name="member_table")
-
+@Table(name="payment")
 @Entity
 public class Payment {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "payment_id")
 	private Long paymentId;
 	@Column(name = "payment_time")
-	private DateTimeFormat paymentTime;
+	private LocalDate paymentTime;
 	
-	@OneToMany(mappedBy = "memberId")
-//	@OneToOne
-//    @JoinColumn(name = "memberId", referencedColumnName = "memberId", nullable = false)
-//	@JoinColumn(name = "membership_no")
-//	@JoinColumn(name = "ex)Order ") //수정필요
-//	private orderId
+	@ManyToOne
+    @JoinColumn(name = "memberId", referencedColumnName = "memberId", nullable = false)
+	private Member member;
+	
 	@Override
 	public String toString() {
 		return "Payment [PaymentId=" + paymentId + ", paymentTime=" + paymentTime + "]";
