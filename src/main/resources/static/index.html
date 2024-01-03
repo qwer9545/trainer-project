@@ -73,18 +73,37 @@ button[onclick="loginPopup()"] {
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
     <h1 class="w3-jumbo"><span class="w3-hide-small">Fisa</span> Gym</h1>
     <img src="images/mainphoto.jpeg" alt="boy" class="w3-image" width="992" height="1108">
-    <h2 class="w3-text-light-grey"><br><br><br><br><br><br><br>운동한지 5일 지났어요!😰 근손실이 우려돼요<br><br><br></h2>
+    <h2 class="w3-text-light-grey"><br><br><br><br><br><br><br>
+    x<br><br><br></h2>
+    <hr>
+	<div id = "datediffView"></div>
+	
    	<button type="button">
 	  <img src="images/barcode_generate.png" onclick="showPopup()" >
 	</button>
   </header>
+  
   
   <!-- 바코드 -->
 <!-- 	<button type="button">
 	  <img src="images/clickbar.jpg" onclick="showPopup()" >
 	</button> -->
 	 <script>
-  		function showPopup() { window.open("Barcode.html", "bar", "width=800, height=300, left=100, top=50"); }
+  		function showPopup() { 
+  			window.open("Barcode.html", "bar", "width=800, height=300, left=100, top=50");
+  			
+  			const xhttp = new XMLHttpRequest();
+  			xhttp.onload = function() {
+  				
+  				let data = this.responseText;
+  				alert(`운동한지 ${data} 일 지났습니다`);
+  			 	
+  				document.getElementById("membershipdatediff").innerHTML = data;
+  			};
+  			
+  			xhttp.open( "Get", "membershipDateDiff");
+  			xhttp.send();
+  		}
  	 </script>
  	 
  	 <!-- 로그인 -->
