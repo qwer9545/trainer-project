@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>W3.CSS Template</title>
+<title>FISAGYM</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,13 +16,24 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 #main {margin-left: 120px}
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+button {
+    display: block;
+    margin: 0 auto;
+}
+
+button[onclick="loginPopup()"] {
+    display: block;
+    margin: 0 auto;
+}
+        
 </style>
 </head>
 <body class="w3-black">
+
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  <img src="images/avatar_smoke.jpg" style="width:100%">
+  <!-- 로고 삽입 -->
+  <img src="images/logo.jpg" style="width:100%">
   <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
     <i class="fa fa-home w3-xxlarge"></i>
     <p>HOME</p>
@@ -32,14 +43,15 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <p>ABOUT</p>
   </a>
   <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>PHOTOS</p>
+    <i class="fa fa-coffee w3-xxlarge"></i>
+    <p>Drinks</p>
   </a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p>CONTACT</p>
   </a>
 </nav>
+
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
@@ -49,14 +61,16 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
   </div>
 </div>
+
 <!-- Page Content -->
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> John Doe.</h1>
-    <p>Photographer and Web Designer.</p>
-    <img src="images/man_smoke.jpg" alt="boy" class="w3-image" width="992" height="1108">
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Just</span> Do It.</h1>
+    <p></p>
+    <img src="images/mainphoto.jpeg" alt="boy" class="w3-image" width="992" height="1108">
   </header>
+  
   <!-- 바코드 -->
 	<button type="button">
 	  <img src="images/clickbar.jpg" onclick="showPopup()" >
@@ -64,145 +78,231 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 	 <script>
   		function showPopup() { window.open("Barcode.html", "bar", "width=800, height=300, left=100, top=50"); }
  	 </script>
- 	
+ 	 
  	 <!-- 로그인 -->
 	<button type="button" onclick="loginPopup()">
-	  로그인
+	  Sign in!
 	</button>
 	 <script>
   		function loginPopup() { window.open("login.html", "bar", "width=800, height=300, left=100, top=50"); }
  	 </script>
+  
+
   <!-- About Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+  
+  
   		<a href="#deptView">
 			<i class="fa fa-apple" id="icon"
-				style="font-size:48px;color:chartreuse"></i>
+				style="font-size:48px;color:black"></i>
 		</a>
-    <h2 class="w3-text-light-grey">My Name</h2>
+  
+  
+    <h2 class="w3-text-light-grey">About Us</h2>
     <hr style="width:200px" class="w3-opacity">
-    <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
-    <p class="w3-wide">Photography</p>
+    <p>Welcome to Fisagym, your ultimate destination for a transformative fitness experience! At Fisagym, we believe in more than just a workout; we believe in a holistic approach to health and wellness. Our state-of-the-art facility is designed to inspire and empower individuals of all fitness levels to achieve their goals and embrace a healthier lifestyle.
+    </p>	
+    <h3 class="w3-padding-16 w3-text-light-grey">Why Choose Fisagym?</h3>
+    <p class="w3-wide">1.Cutting-Edge Equipment:</p>
+    <p>Our gym is equipped with the latest and most advanced fitness technology, ensuring that you have access to top-notch equipment for a highly effective workout.</p>
     <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
+      <div class="w3-dark-grey" style="height:28px;width:25%"></div>
     </div>
-    <p class="w3-wide">Web Design</p>
+    <p class="w3-wide">2.Diverse Classes</p>
+    <p>Spice up your fitness routine with our diverse range of classes, including yoga, high-intensity interval training (HIIT), spinning, and more. Our class schedule caters to various preferences, making it easy for you to find the perfect fit for your fitness goals.</p>
     <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:85%"></div>
+      <div class="w3-dark-grey" style="height:28px;width:50%"></div>
     </div>
-    <p class="w3-wide">Photoshop</p>
+    <p class="w3-wide">3.Community Atmosphere</p>
+    <p>Fisagym is not just a gym; it's a community of like-minded individuals supporting each other on the journey to better health. Connect with fellow members, participate in events, and experience the camaraderie that makes Fisagym unique.</p>
     <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
+      <div class="w3-dark-grey" style="height:28px;width:75%"></div>
+      </div>
+    <p class="w3-wide">4.Clean and Inviting Environment</p>
+    <p>We prioritize cleanliness and create a welcoming atmosphere to ensure that you feel comfortable and motivated every time you step through our doors.</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:100%"></div>
     </div><br>
+    
     <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
       <div class="w3-quarter w3-section">
         <span class="w3-xlarge">11+</span><br>
-        Partners
+        branch offices
       </div>
       <div class="w3-quarter w3-section">
         <span class="w3-xlarge">55+</span><br>
-        Projects Done
+        Expert Trainers
       </div>
       <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">89+</span><br>
+        <span class="w3-xlarge">1500+</span><br>
+        Reviews
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">5000+</span><br>
         Happy Clients
       </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">150+</span><br>
-        Meetings
-      </div>
     </div>
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i> Download Resume
-    </button>
+	<br>
+	
+ 	<!-- 지점 사진 삽입 -->
+    <h3 class="w3-padding-16 w3-text-light-grey">Branch Offices</h3>
+    <ul>
+ 	<img src="images/branch1.jpg" alt="Avatar" class="w3-left w3-square w3-margin-right" style="width:150px">
+	<p>Gwanghwamun Main Branch</p><br>
+	<img src="images/branch2.jpg" alt="Avatar" class="w3-left w3-square w3-margin-right" style="width:150px">
+	<p>Yeouido Branch</p><br>
+	<img src="images/branch3.jpg" alt="Avatar" class="w3-left w3-square w3-margin-right" style="width:150px">
+	<p>Sangam Branch</p><br>    
+	<img src="images/branch4.jpg" alt="Avatar" class="w3-left w3-square w3-margin-right" style="width:150px">
+	<p>City Hall Station Branch</p>
+    </ul>
+    <br><tr></tr><br><br>
+		
+   
+       
     <!-- Grid for pricing tables -->
-    <h3 class="w3-padding-16 w3-text-light-grey">My Price</h3>
+    <h3 class="w3-padding-16 w3-text-light-grey">Membership Grade</h3>
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-half w3-margin-bottom">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
           <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">5GB Storage</li>
-          <li class="w3-padding-16">Mail Support</li>
+          <li class="w3-padding-16">Provided Sportswear</li>
+          <li class="w3-padding-16">Locker Access</li>
+      <li class="w3-padding-16">Shower Facility Available</li>
+      <li class="w3-padding-16">Access to 100+ Exercise Equipment</li>
           <li class="w3-padding-16">
-            <h2>$ 10</h2>
+            <h2>$ 18</h2>
             <span class="w3-opacity">per month</span>
           </li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
+            <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="login.html">Sign Up </a></button>
           </li>
         </ul>
       </div>
+
       <div class="w3-half">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
           <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">50GB Storage</li>
-          <li class="w3-padding-16">Endless Support</li>
+      <li class="w3-padding-16">Includes Basic Grade Benefits</li>
+      <li class="w3-padding-16">Access to Steam Sauna</li>
+      <li class="w3-padding-16">Free Personal Training Session(1 serving)</li>
+      <li class="w3-padding-16">Complimentary Drinks (2 servings)</li>
           <li class="w3-padding-16">
-            <h2>$ 25</h2>
+            <h2>$ 30</h2>
             <span class="w3-opacity">per month</span>
           </li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
+            <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="login.html">Sign Up </a></button>
           </li>
         </ul>
       </div>
     <!-- End Grid/Pricing tables -->
     </div>
+    
     <!-- Testimonials -->
-    <h3 class="w3-padding-24 w3-text-light-grey">My Reputation</h3>
-    <img src="images/bandmember.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-    <p><span class="w3-large w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>
-    <p>John Doe saved us from a web disaster.</p><br>
-    <img src="images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+    <h3 class="w3-padding-24 w3-text-light-grey">Expert Trainers</h3>  
+    <img src="images/teac1.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:120px">
+    <p><span class="w3-large w3-margin-right">Chris Bums.</span> Mr.Olimpia.</p>
+    <p>Never give up.</p><br>
+    
+    <img src="images/teac2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:120px">
     <p><span class="w3-large w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
-    <p>No one is better than John Doe.</p>
+    <p>No one is better than us.</p><br>
+    
+    <img src="images/tech3.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:170px">
+    <p><span class="w3-large w3-margin-right">Sungbin Yoon.</span> Gold Medal at Olympic skeleton.</p>
+    <p>If you think, look, and work hard, it will come true.</p><br>
+    
+    <img src="images/teac4.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:170px">
+    <p><span class="w3-large w3-margin-right">Daeho Lee.</span> Gold Medal at baseball.</p>
+    <p>If your feet are slow, you can just hit a home run.</p>
   <!-- End About Section -->
   </div>
+  
   <div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">상암 DMC점</h2>
+    <h2 class="w3-text-light-grey">Drinks</h2>
     <hr style="width:200px" class="w3-opacity">
+
     <!-- Grid for photos -->
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-half w3-margin-bottom">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">아이스 아메리카노</li>
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Ice Americano</li>
           <li><img src="images/americano.jpg" style="width:100%"><br> <h2>100원</h2></li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
+            <button class="w3-button w3-white w3-padding-large w3-hover-black">Add</button>
           </li>
         </ul>
       </div>
+
       <div class="w3-half w3-margin-bottom">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">신타6 프로틴쉐이크</li>
-          <li><img src="images/shake.jpg" style="width:100%"><br> <h2>2900원</h2></li>
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Protein Shake</li>
+          <li><img src="images/shake.jpg" style="width:100%"><br> <h2>3000원</h2></li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">담기</button>
+            <button class="w3-button w3-white w3-padding-large w3-hover-black">Add</button>
           </li>
         </ul>
       </div>
     <!-- End Grid/Pricing tables -->
     </div>
-    <div align="center"><button class="w3-button w3-white w3-padding-large w3-hover-black">주문하기</button></div>
+    <div align="center"><button class="w3-button w3-white w3-padding-large w3-hover-black">Check</button></div> 
   <!-- End Portfolio Section -->
   </div>
+
   <!-- Contact Section -->
   <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
+    <h2 class="w3-text-light-grey">Contact Us</h2>
     <hr style="width:200px" class="w3-opacity">
+
     <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
+      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> World Cup buk-ro, Mapo-gu, Seoul</p>
+      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +82 1020519545</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: help@woorifisa.com</p>
     </div><br>
+    <div class="elementor-widget-container">
+			<style>
+/* PC 카카오톡 채널 버튼 위치 */
+.kakaoChatPc {
+    position: fixed;
+    z-index: 999;
+    right: 30px; /* 화면 오른쪽으로부터의 거리, 숫자만 입력 */
+    bottom: 90px; /* 화면 아래쪽으로부터의 거리, 숫자만 입력 */
+}
+/* 모바일 카카오톡 채널 버튼 위치 */
+.kakaoChatMob {
+    position: fixed;
+    z-index: 999;
+    right: 30px; /* 화면 오른쪽으로부터의 거리, 숫자만 입력 */
+    bottom: 120px; /* 화면 아래쪽으로부터의 거리, 숫자만 입력 */
+}
+
+</style>
+
+<!-- PC 카카오톡 상담 버튼(카톡으로 알림,, 챗봇 연결) -->
+<a href="http://pf.kakao.com/_rycwG/chat" class="kakaoChatPc hidden-md hidden-sm hidden-xs">
+    <img src="http://woorifisa.com/wp-content/uploads/2023/10/kakaotalk.png" width="58px" height="58px">
+</a>
+
+<!-- 모바일 카카오톡 상담 버튼 
+<a href="javascript:void kakaoChatStart()" class="kakaoChatMob hidden-lg">
+    <img src="http://woorifisa.com/wp-content/uploads/2023/10/kakaotalk.png" width="38px" height="38px">
+</a> -->
+
+<!-- 카카오톡 채널 스크립트 -->
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript">
+    Kakao.init('99b4852510033be3764165ffeaf1fbbe'); // 사용할 앱의 JavaScript키를 입력해 주세요.
+    function kakaoChatStart() {
+        Kakao.Channel.chat({
+            channelPublicId: '_ZeUTxl' // 카카오톡 채널 홈 URL에 명시된 ID를 입력합니다.
+        });
+    }
+</script>
+		</div>
+    
     <p>Let's get in touch. Send me a message:</p>
+
     <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
@@ -216,32 +316,20 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     </form>
   <!-- End Contact Section -->
   </div>
-    <!-- Footer -->
+  
+    <!-- Footer 링크 삽입-->
   <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <a href="https:fb.com"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https:instagram.com"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <a href="https://github.com/fisa-gym/trainer-project"><i class="fa fa-github w3-hover-opacity"></i></a>
+    <a href="https://linkedin.com"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
     <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    <p class="w3-medium">© <a href="https://woorifisa.com" ' target="_blank" class="w3-hover-text-green"> Copyright 2023 WOORIFIS. All right reserved.</a></p>
   <!-- End footer -->
   </footer>
+
 <!-- END PAGE CONTENT -->
 </div>
-<script>
-	function cartInsert(){
-		/* let insertQueryString = `id=${document.getElementById("id").value}&memberId=${document.getElementById("memberId").value}&drinkId=${document.getElementById("drinkId").value}`; */
-		let insertQueryString = `memberId=1&drinkId=1`;
-	
-		const xhttp = new XMLHttpRequest();
-		xhttp.onload = function() {			
-			alert(this.responseText);
-		};
-		xhttp.open("POST", "cartInsert");
-		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xhttp.send(insertQueryString);
-	}
-</script>
+
 </body>
 </html>
