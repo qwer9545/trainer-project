@@ -38,17 +38,21 @@ button[onclick="loginPopup()"] {
     <i class="fa fa-home w3-xxlarge"></i>
     <p>HOME</p>
   </a>
+    <a href="#now" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>JUST DO IT</p>
+  </a>
   <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-user w3-xxlarge"></i>
     <p>ABOUT</p>
   </a>
   <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-coffee w3-xxlarge"></i>
-    <p>Drinks</p>
+    <i class="fa fa-coffee" style="font-size:38px;color:white"></i>
+    <p>ORDER</p>
   </a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
+	<i class="fa fa-sign-in" style="font-size:38px;color:white"></i>
+   <p>LOGIN</p>
   </a>
 </nav>
 
@@ -56,6 +60,7 @@ button[onclick="loginPopup()"] {
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
     <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="#now" class="w3-bar-item w3-button" style="width:25% !important">JUST DO IT</a>
     <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
     <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
     <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
@@ -66,39 +71,102 @@ button[onclick="loginPopup()"] {
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Just</span> Do It.</h1>
-    <p></p>
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Fisa</span> Gym</h1>
     <img src="images/mainphoto.jpeg" alt="boy" class="w3-image" width="992" height="1108">
+    <h2 class="w3-text-light-grey"><br><br><br><br><br><br><br>운동한지 5일 지났어요!😰 근손실이 우려돼요<br><br><br></h2>
+   	<button type="button">
+	  <img src="images/barcode_generate.png" onclick="showPopup()" >
+	</button>
   </header>
   
   <!-- 바코드 -->
-	<button type="button">
+<!-- 	<button type="button">
 	  <img src="images/clickbar.jpg" onclick="showPopup()" >
-	</button>
+	</button> -->
 	 <script>
   		function showPopup() { window.open("Barcode.html", "bar", "width=800, height=300, left=100, top=50"); }
  	 </script>
  	 
  	 <!-- 로그인 -->
-	<button type="button" onclick="loginPopup()">
+<!-- 	<button type="button" onclick="loginPopup()">
 	  Sign in!
-	</button>
+	</button> -->
 	 <script>
   		function loginPopup() { window.open("login.html", "bar", "width=800, height=300, left=100, top=50"); }
  	 </script>
   
 
   <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="now">
   
   
-  		<a href="#deptView">
+<!--   		<a href="#deptView">
 			<i class="fa fa-apple" id="icon"
 				style="font-size:48px;color:black"></i>
-		</a>
+		</a> -->
   
-  
-    <h2 class="w3-text-light-grey">About Us</h2>
+  <br><br><br><br><br><h2 class="w3-text-light-grey">상암 DMC점</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <h3 class="w3-padding-16 w3-text-light-grey">지점 운동 비율</h3>
+    <p class="w3-wide">가슴</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:90%"></div>
+    </div>
+    <p class="w3-wide">등</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:30%"></div>
+    </div>
+    <p class="w3-wide">어깨</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
+    </div>
+    <p class="w3-wide">유산소</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
+    </div>
+    
+    <br><br><br><br><br><br><br><br><br>
+    <!-- Grid for pricing tables -->
+    <h3 class="w3-padding-16 w3-text-light-grey">구독 멤버십</h3>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16">Provided Sportswear</li>
+          <li class="w3-padding-16">Locker Access</li>
+      <li class="w3-padding-16">Shower Facility Available</li>
+      <li class="w3-padding-16">Access to 100+ Exercise Equipment</li>
+          <li class="w3-padding-16">
+            <h2>$ 18</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="login.html">Sign Up </a></button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w3-half">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
+      <li class="w3-padding-16">Includes Basic Grade Benefits</li>
+      <li class="w3-padding-16">Access to Steam Sauna</li>
+      <li class="w3-padding-16">Free Personal Training Session(1 serving)</li>
+      <li class="w3-padding-16">Complimentary Drinks (2 servings)</li>
+          <li class="w3-padding-16">
+            <h2>$ 30</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="login.html">Sign Up </a></button>
+          </li>
+        </ul>
+      </div>
+    <!-- End Grid/Pricing tables -->
+    </div><br><br><br><br><br><br>
+    
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-light-grey" id="about">About Us</h2>
     <hr style="width:200px" class="w3-opacity">
     <p>Welcome to Fisagym, your ultimate destination for a transformative fitness experience! At Fisagym, we believe in more than just a workout; we believe in a holistic approach to health and wellness. Our state-of-the-art facility is designed to inspire and empower individuals of all fitness levels to achieve their goals and embrace a healthier lifestyle.
     </p>	
@@ -155,13 +223,13 @@ button[onclick="loginPopup()"] {
 	<p>Sangam Branch</p><br>    
 	<img src="images/branch4.jpg" alt="Avatar" class="w3-left w3-square w3-margin-right" style="width:150px">
 	<p>City Hall Station Branch</p>
-    </ul>
+    </ul></div>
     <br><tr></tr><br><br>
 		
    
        
     <!-- Grid for pricing tables -->
-    <h3 class="w3-padding-16 w3-text-light-grey">Membership Grade</h3>
+    <!-- <h3 class="w3-padding-16 w3-text-light-grey">Membership Grade</h3>
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-half w3-margin-bottom">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
@@ -196,8 +264,8 @@ button[onclick="loginPopup()"] {
           </li>
         </ul>
       </div>
-    <!-- End Grid/Pricing tables -->
-    </div>
+    End Grid/Pricing tables
+    </div> -->
     
     <!-- Testimonials -->
     <h3 class="w3-padding-24 w3-text-light-grey">Expert Trainers</h3>  
@@ -219,40 +287,56 @@ button[onclick="loginPopup()"] {
   <!-- End About Section -->
   </div>
   
-  <div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">Drinks</h2>
+    <div class="w3-padding-64 w3-content" id="photos">
+    <h2 class="w3-text-light-grey">상암 DMC점</h2>
     <hr style="width:200px" class="w3-opacity">
-
     <!-- Grid for photos -->
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-half w3-margin-bottom">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Ice Americano</li>
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">아이스 아메리카노</li>
           <li><img src="images/americano.jpg" style="width:100%"><br> <h2>100원</h2></li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Add</button>
+            <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
           </li>
         </ul>
       </div>
-
       <div class="w3-half w3-margin-bottom">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Protein Shake</li>
-          <li><img src="images/shake.jpg" style="width:100%"><br> <h2>3000원</h2></li>
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">신타6 프로틴쉐이크</li>
+          <li><img src="images/shake.jpg" style="width:100%"><br> <h2>2,900원</h2></li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Add</button>
+            <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
+          </li>
+        </ul>
+      </div>
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">XTEND BCAA 자몽</li>
+          <li><img src="images/ade.png" style="width:100%"><br> <h2>1,900원</h2></li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
+          </li>
+        </ul>
+      </div>
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">셀렉스 프로틴</li>
+          <li><img src="images/profit.jpg" style="width:100%"><br> <h2>1,900원</h2></li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
           </li>
         </ul>
       </div>
     <!-- End Grid/Pricing tables -->
     </div>
-    <div align="center"><button class="w3-button w3-white w3-padding-large w3-hover-black">Check</button></div> 
+    <div align="center"><button class="w3-button w3-white w3-padding-large w3-hover-black">주문하기</button></div>
   <!-- End Portfolio Section -->
   </div>
 
   <!-- Contact Section -->
   <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Us</h2>
+    <h2 class="w3-text-light-grey">LOG IN</h2>
     <hr style="width:200px" class="w3-opacity">
 
     <div class="w3-section">
@@ -260,6 +344,30 @@ button[onclick="loginPopup()"] {
       <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +82 1020519545</p>
       <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: help@woorifisa.com</p>
     </div><br>
+        <form action="memberlogin" method="post">
+      <p><input id="loginId" class="w3-input w3-padding-16" type="text" placeholder="ID" required name="loginId"></p>
+      <p><input id="password" class="w3-input w3-padding-16" type="password" placeholder="PASSWORD" required name="password"></p>
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> LOG IN
+        </button>
+      </p>
+    </form><br><br><br><br><br><br><br>
+    <script>
+	function cartInsert(){
+		/* let insertQueryString = `id=${document.getElementById("id").value}&memberId=${document.getElementById("memberId").value}&drinkId=${document.getElementById("drinkId").value}`; */
+		let insertQueryString = `memberId=2&drinkId=2`;
+	
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function() {			
+			alert(this.responseText);
+		};
+		xhttp.open("POST", "cartInsert");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send(insertQueryString);
+	}
+</script>
+    
     <div class="elementor-widget-container">
 			<style>
 /* PC 카카오톡 채널 버튼 위치 */
@@ -301,7 +409,7 @@ button[onclick="loginPopup()"] {
 </script>
 		</div>
     
-    <p>Let's get in touch. Send me a message:</p>
+    <!-- <p>Let's get in touch. Send me a message:</p>
 
     <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
@@ -313,7 +421,7 @@ button[onclick="loginPopup()"] {
           <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </button>
       </p>
-    </form>
+    </form> -->
   <!-- End Contact Section -->
   </div>
   
@@ -323,7 +431,7 @@ button[onclick="loginPopup()"] {
     <a href="https:instagram.com"><i class="fa fa-instagram w3-hover-opacity"></i></a>
     <a href="https://github.com/fisa-gym/trainer-project"><i class="fa fa-github w3-hover-opacity"></i></a>
     <a href="https://linkedin.com"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
-    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    <!-- <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p> -->
     <p class="w3-medium">© <a href="https://woorifisa.com" ' target="_blank" class="w3-hover-text-green"> Copyright 2023 WOORIFIS. All right reserved.</a></p>
   <!-- End footer -->
   </footer>

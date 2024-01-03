@@ -15,19 +15,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CartService {
     private final CartRepository cartRepository;
-//    private final MemberRepository memberRepository;
-//    private final DrinkRepository drinkRepository;
-    private ModelMapper mapper = new ModelMapper();
+	private ModelMapper mapper = new ModelMapper();
+
     
     public boolean insert(CartDTO cartDTO) {
-    	System.out.println("아 ..............");
         try {
-//        	Member member = memberRepository.findById(cartDTO.getMemberId()).orElse(null);
-//        	Drink drink = drinkRepository.findById(cartDTO.getDrinkId()).orElse(null);
-        	
-//        	Cart cart = new Cart();
-//        	cart.setMemberId(cartDTO.getMemberId());
-//        	cart.setDrinkId(cartDTO.getDrinkId());
         	Cart cart = mapper.map(cartDTO, Cart.class);
         	cartRepository.save(cart);
             return true;
