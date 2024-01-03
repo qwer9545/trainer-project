@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-no!
+<h1>다시 로그인 해주세요.</h1>
 </body>
 </html>
