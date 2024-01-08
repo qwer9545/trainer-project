@@ -2,6 +2,7 @@ package com.fisa.gym.model.domain;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,12 +27,12 @@ import lombok.ToString;
 public class Order {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long orderId;
+	private Long id;
 	
 	@ManyToOne
-    @JoinColumn(name = "memberId", referencedColumnName = "memberId", nullable = false)
+    @JoinColumn(name = "memberId", referencedColumnName = "id", nullable = false)
 	private Member member;
 	
-	@OneToMany(mappedBy = "drinkId")
-	private List<Drink> drinks;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<Cart> carts;
 }

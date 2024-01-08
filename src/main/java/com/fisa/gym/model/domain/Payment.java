@@ -25,18 +25,19 @@ import lombok.Setter;
 public class Payment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "payment_id")
-	private Long paymentId;
+//	@Column(name = "payment_id")
+	private Long id;
+	
 	@Column(name = "payment_time")
 	private LocalDate paymentTime;
 	
 	@ManyToOne
-    @JoinColumn(name = "memberId", referencedColumnName = "memberId", nullable = false)
+    @JoinColumn(name = "memberId", referencedColumnName = "id", nullable = false)
 	private Member member;
 	
 	@Override
 	public String toString() {
-		return "Payment [PaymentId=" + paymentId + ", paymentTime=" + paymentTime + "]";
+		return "Payment [PaymentId=" + id + ", paymentTime=" + paymentTime + "]";
 	}
 	
 }

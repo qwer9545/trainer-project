@@ -23,13 +23,7 @@ import lombok.ToString;
 public class Membership {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long membershipId;
-	
-//	@OneToOne
-//    @JoinColumn(name = "memberId", referencedColumnName = "memberId", nullable = false)
-//	private Member member;
-	
-	
+	private Long id;
 	
 	private LocalDate startDate; // 시작 일시    
 	
