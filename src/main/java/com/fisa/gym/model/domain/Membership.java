@@ -25,10 +25,10 @@ import lombok.ToString;
 public class Membership {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long membershipId;
+	private Long id;
 	
 	@OneToOne
-    @JoinColumn(name = "memberId", referencedColumnName = "memberId", nullable = false)
+    @JoinColumn(name = "memberId", referencedColumnName = "id", nullable = false)
 	private Member member;
 	
 	private LocalDate startDate; // 시작 일시

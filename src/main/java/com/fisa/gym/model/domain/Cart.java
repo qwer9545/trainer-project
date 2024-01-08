@@ -3,6 +3,8 @@ package com.fisa.gym.model.domain;
 import java.util.List;
 import java.util.Optional;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,13 +31,22 @@ import lombok.ToString;
 public class Cart {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long cartId;
+	private Long id;
 	
-	@OneToOne
-    @JoinColumn(name = "member_id", nullable = false)
+	@ManyToOne
+    @JoinColumn(name = "member_id", referencedColumnName = "id", nullable = false)
 	private Member member;
 	
-	@OneToOne
-	@JoinColumn(name = "drink_id", nullable = false)
-	private Drink drink;
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Drink drink;
+    
+    @ManyToOne
+    @JoinColumn(name = "product_order_id", referencedColumnName = "id")
+    @JsonIgnore
+    private Order order;
+	
+//	@OneToMany
+//	@JoinColumn(name = "drink_id", nullable = false)
+//	private Drink drink;
 }
