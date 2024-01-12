@@ -31,7 +31,6 @@ public class Drink {
 	private Long id;
 	private String name;
 	private int price;
-	private String imgLink;
 
     @OneToMany(mappedBy = "drink", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
