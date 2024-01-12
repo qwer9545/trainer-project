@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .w3-row-padding img {margin-bottom: 12px}
@@ -310,45 +311,7 @@ button[onclick="loginPopup()"] {
     <h2 class="w3-text-light-grey">상암 DMC점</h2>
     <hr style="width:200px" class="w3-opacity">
     <!-- Grid for photos -->
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-half w3-margin-bottom">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">아이스 아메리카노</li>
-          <li><img src="images/americano.jpg" style="width:100%"><br> <h2>100원</h2></li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
-          </li>
-        </ul>
-      </div>
-      <div class="w3-half w3-margin-bottom">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">신타6 프로틴쉐이크</li>
-          <li><img src="images/shake.jpg" style="width:100%"><br> <h2>2,900원</h2></li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
-          </li>
-        </ul>
-      </div>
-      <div class="w3-half w3-margin-bottom">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">XTEND BCAA 자몽</li>
-          <li><img src="images/ade.png" style="width:100%"><br> <h2>1,900원</h2></li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
-          </li>
-        </ul>
-      </div>
-      <div class="w3-half w3-margin-bottom">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">셀렉스 프로틴</li>
-          <li><img src="images/profit.jpg" style="width:100%"><br> <h2>1,900원</h2></li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
-          </li>
-        </ul>
-      </div>
-    <!-- End Grid/Pricing tables -->
-    </div>
+    <div id = "drinkMenuView" class="w3-row-padding" style="margin:0 -16px"></div>
     <div align="center"><button class="w3-button w3-white w3-padding-large w3-hover-black">주문하기</button></div>
   <!-- End Portfolio Section -->
   </div>
@@ -372,7 +335,40 @@ button[onclick="loginPopup()"] {
         </button>
       </p>
     </form><br><br><br><br><br><br><br>
-    <script>
+    
+
+   	 <script>
+	  
+	  $(function() {
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {			
+		        const data = JSON.parse(this.responseText);
+		        generateMenu(data);
+	        };
+
+			xhttp.open("GET", "drinkMenu");
+			xhttp.send();
+			
+	      function generateMenu(data) {
+ 	  		const container = $("#drinkMenuView");
+	        
+ 	  		data.forEach(item => {
+	          const menuItemHTML = `
+	            <div class="w3-half w3-margin-bottom">
+	              <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+	                <li class="w3-dark-grey w3-xlarge w3-padding-32">${item.name}</li>
+	                <li><img src="${item.imgLink}" style="width:100%"><br> <h2>${item.price}원</h2></li>
+	                <li class="w3-light-grey w3-padding-24">
+	                  <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert()">담기</button>
+	                </li>
+	              </ul>
+	            </div>
+	          `;
+	          container.append(menuItemHTML);
+	        });
+	      }
+		});
+
 	function cartInsert(){
 		/* let insertQueryString = `id=${document.getElementById("id").value}&memberId=${document.getElementById("memberId").value}&drinkId=${document.getElementById("drinkId").value}`; */
 		let insertQueryString = `memberId=2&drinkId=2`;
