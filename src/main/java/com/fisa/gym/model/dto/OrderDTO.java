@@ -14,8 +14,8 @@ import lombok.ToString;
 @ToString
 
 @Builder
-public class CartDTO {
+public class OrderDTO {
 	private Long id;
 	private Long memberId;
-	private Long drinkId;
+//	private Long productOrderId;
 }
