@@ -14,6 +14,7 @@ import lombok.ToString;
 @ToString
 @Builder
 public class DrinkDTO {
+	private long id;
 	private String name;
 	private int price;
 	private String imgLink;
