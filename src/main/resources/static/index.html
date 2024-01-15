@@ -312,7 +312,7 @@ button[onclick="loginPopup()"] {
     <hr style="width:200px" class="w3-opacity">
     <!-- Grid for photos -->
     <div id = "drinkMenuView" class="w3-row-padding" style="margin:0 -16px"></div>
-    <div align="center"><button class="w3-button w3-white w3-padding-large w3-hover-black">주문하기</button></div>
+    <div align="center"><button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="placeOrder()">주문하기</button></div>
   <!-- End Portfolio Section -->
   </div>
 
@@ -380,6 +380,18 @@ button[onclick="loginPopup()"] {
 			alert(this.responseText);
 		};
 		xhttp.open("POST", "cartInsert");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send(insertQueryString);
+	}
+	
+	function placeOrder() {
+		let insertQueryString = `memberId=2`;
+	
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function() {			
+			alert(this.responseText);
+		};
+		xhttp.open("POST", "order");
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.send(insertQueryString);
 	}

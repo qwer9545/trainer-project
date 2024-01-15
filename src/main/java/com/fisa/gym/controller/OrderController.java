@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fisa.gym.model.dto.OrderDTO;
 import com.fisa.gym.service.OrderService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.servlet.http.HttpSession;
 
 @RestController

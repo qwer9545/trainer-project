@@ -2,7 +2,6 @@ package com.fisa.gym.model.domain;
 
 import java.time.LocalDate;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,7 +32,6 @@ public class Payment {
 	
 	@ManyToOne
     @JoinColumn(name = "memberId", referencedColumnName = "id", nullable = false)
-	private Member member;
 	
 	@Override
 	public String toString() {
