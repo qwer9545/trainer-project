@@ -21,7 +21,7 @@ public class MembershipController {
 	public List<Membership> membershipAll() throws Exception {
 		return membershipService.getAllMembership();
 	}
-
+	
 	@GetMapping("/membershipDateDiff")
 	public long membershipDateDiff() throws Exception {
 		System.out.println("====");

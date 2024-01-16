@@ -1,211 +1,511 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
+<title>FISAGYM</title>
 <meta charset="UTF-8">
-<title>재능 기부</title>
-</head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <style>
-	.waviy {
-		position: relative;
-		-webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
-		font-size: 30px;
-		width: 300px;
-		height: 18px;
-		padding: 20px 20px;
-		text-align: center;
-	}
-	
-	.waviy span {
-		font-family: Impact;
-		position: relative;
-		display: inline-block;
-		color: rgb(0, 0, 0);
-		text-transform: uppercase;
-		animation: waviy 1s infinite;
-		animation-delay: calc(.1s * var(--i));
-	}
-	
-	@keyframes waviy {
-		0%,40%,100% {
-			transform: translateY(0)
-		}
-		20% {
-			transform: translateY(-20px)
-		}
-	}
-	
-	
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+button {
+    display: block;
+    margin: 0 auto;
+}
+
+button[onclick="loginPopup()"] {
+    display: block;
+    margin: 0 auto;
+}
+        
 </style>
+</head>
+<body class="w3-black">
 
-<body>
-	<div class="waviy">
-         <span style="--i:1">F</span>
-         <span style="--i:2">I</span>
-         <span style="--i:3">S</span>
-         <span style="--i:4">A</span>  
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- 로고 삽입 -->
+  <img src="images/logo.jpg" style="width:100%">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+    <a href="#now" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>JUST DO IT</p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>ABOUT</p>
+  </a>
+  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-coffee" style="font-size:38px;color:white"></i>
+    <p>ORDER</p>
+  </a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+	<i class="fa fa-sign-in" style="font-size:38px;color:white"></i>
+   <p>LOGIN</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="#now" class="w3-bar-item w3-button" style="width:25% !important">JUST DO IT</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Fisa</span> Gym</h1>
+    <img src="images/mainphoto.jpeg" alt="boy" class="w3-image" width="992" height="1108">
+    <h2 class="w3-text-light-grey"><br><br><br><br><br><br><br>
+    x<br><br><br></h2>
+    <hr>
+	<div id = "datediffView"></div>
+	
+   	<button type="button">
+	  <img src="images/barcode_generate.png" onclick="showPopup()" >
+	</button>
+  </header>
+  
+  
+  <!-- 바코드 -->
+<!-- 	<button type="button">
+	  <img src="images/clickbar.jpg" onclick="showPopup()" >
+	</button> -->
+	 <script>
+  		function showPopup() { 
+  			window.open("Barcode.html", "bar", "width=800, height=300, left=100, top=50");
+  			
+  			const xhttp = new XMLHttpRequest();
+  			xhttp.onload = function() {
+  				
+  				let data = this.responseText;
+  				alert(`운동한지 ${data} 일 지났습니다`);
+  			 	
+  				document.getElementById("membershipdatediff").innerHTML = data;
+  			};
+  			
+  			xhttp.open( "Get", "membershipDateDiff");
+  			xhttp.send();
+  		}
+ 	 </script>
+ 	 
+ 	 <!-- 로그인 -->
+<!-- 	<button type="button" onclick="loginPopup()">
+	  Sign in!
+	</button> -->
+	 <script>
+  		function loginPopup() { window.open("login.html", "bar", "width=800, height=300, left=100, top=50"); }
+ 	 </script>
+  
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="now">
+  
+  
+<!--   		<a href="#deptView">
+			<i class="fa fa-apple" id="icon"
+				style="font-size:48px;color:black"></i>
+		</a> -->
+  
+  <br><br><br><br><br><h2 class="w3-text-light-grey">상암 DMC점</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <h3 class="w3-padding-16 w3-text-light-grey">지점 운동 비율</h3>
+    <p class="w3-wide">가슴</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:90%"></div>
     </div>
-	<br><br><br>
+    <p class="w3-wide">등</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:30%"></div>
+    </div>
+    <p class="w3-wide">어깨</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
+    </div>
+    <p class="w3-wide">유산소</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
+    </div>
+    
+    <br><br><br><br><br><br><br><br><br>
+    <!-- Grid for pricing tables -->
+    <h3 class="w3-padding-16 w3-text-light-grey">구독 멤버십</h3>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16">Provided Sportswear</li>
+          <li class="w3-padding-16">Locker Access</li>
+      <li class="w3-padding-16">Shower Facility Available</li>
+      <li class="w3-padding-16">Access to 100+ Exercise Equipment</li>
+          <li class="w3-padding-16">
+            <h2>$ 18</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="login.html">Sign Up </a></button>
+          </li>
+        </ul>
+      </div>
 
-	<h3>재능 기부의 모든 정보 검색하기</h3>
-	<hr>
-	
-	*** 선택한 기부자 정보 보기 *** <br>
-	<div id = "activistOneView"></div>
-	
-	<hr>
-	<a href="#" onclick="allProbonoProjectView()">1. 진행중인 Probono Project 모두 검색</a><p>
-	<div id = "projectAllView"></div>
-
-	
-	<br><hr><br>
-	<a href="#" onclick="allActivistView()">2. 재능 기부 프로젝트에 참여중인 기부자 모두 검색</a><p>	
-	<div id = "allActivistView"></div>
-
-
-	<br><hr><br>
-	<!-- 재능 기부자 가입하기 -->
-	<button onclick="insertUI()">3. 재능 기부자 가입하기</button><p>
-	<div id='insertUiView'></div>
-	
-	<br><hr><br>
-	<!-- 재능 기부자 가입하기 -->
-	<a href="activistAllView">
-		4. 동기 방식(웹페이지 이동)으로 모든 기부자 검색
-	</a>
+      <div class="w3-half">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
+      <li class="w3-padding-16">Includes Basic Grade Benefits</li>
+      <li class="w3-padding-16">Access to Steam Sauna</li>
+      <li class="w3-padding-16">Free Personal Training Session(1 serving)</li>
+      <li class="w3-padding-16">Complimentary Drinks (2 servings)</li>
+          <li class="w3-padding-16">
+            <h2>$ 30</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="login.html">Sign Up </a></button>
+          </li>
+        </ul>
+      </div>
+    <!-- End Grid/Pricing tables -->
+    </div><br><br><br><br><br><br>
+    
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-light-grey" id="about">About Us</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>Welcome to Fisagym, your ultimate destination for a transformative fitness experience! At Fisagym, we believe in more than just a workout; we believe in a holistic approach to health and wellness. Our state-of-the-art facility is designed to inspire and empower individuals of all fitness levels to achieve their goals and embrace a healthier lifestyle.
+    </p>	
+    <h3 class="w3-padding-16 w3-text-light-grey">Why Choose Fisagym?</h3>
+    <p class="w3-wide">1.Cutting-Edge Equipment:</p>
+    <p>Our gym is equipped with the latest and most advanced fitness technology, ensuring that you have access to top-notch equipment for a highly effective workout.</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:25%"></div>
+    </div>
+    <p class="w3-wide">2.Diverse Classes</p>
+    <p>Spice up your fitness routine with our diverse range of classes, including yoga, high-intensity interval training (HIIT), spinning, and more. Our class schedule caters to various preferences, making it easy for you to find the perfect fit for your fitness goals.</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:50%"></div>
+    </div>
+    <p class="w3-wide">3.Community Atmosphere</p>
+    <p>Fisagym is not just a gym; it's a community of like-minded individuals supporting each other on the journey to better health. Connect with fellow members, participate in events, and experience the camaraderie that makes Fisagym unique.</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:75%"></div>
+      </div>
+    <p class="w3-wide">4.Clean and Inviting Environment</p>
+    <p>We prioritize cleanliness and create a welcoming atmosphere to ensure that you feel comfortable and motivated every time you step through our doors.</p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:100%"></div>
+    </div><br>
+    
+    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">11+</span><br>
+        branch offices
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">55+</span><br>
+        Expert Trainers
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">1500+</span><br>
+        Reviews
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">5000+</span><br>
+        Happy Clients
+      </div>
+    </div>
 	<br>
 	
-	
-	<script>
-		//1. 진행중인 Probono Project 모두 검색
-		function allProbonoProjectView(){
-			
-			const xhttp = new XMLHttpRequest();
-			xhttp.onload = function() {
-				let data = JSON.parse(this.responseText);
-				
-				let tableElement =`
-					<table border="1">
-					<tr>   
-						<th>프로젝트 id</th><th>프로젝트명</th><th>재능기부자 id</th>
-						<th>재능 수혜자  id</th><th>재능기부 내용</th>
-					</tr>`;
-				
-				for (let i in data){
-					tableElement = tableElement + `<tr>
-				 		<td>${data[i].probonoProjectId}</td>
-				 		<td>${data[i].probonoProjectName}</td>
-				 	
-				 		<td><a href="#" onclick = "activistOneView('${data[i].activistId}')">
-				 			${data[i].activistId}
-				 		</a></td>
-				 		<td>${data[i].receiveId}</td>
-				 		<td>${data[i].projectContent}</td>
-				    </tr>`;
-				}
-				
-				tableElement = tableElement + `</table>`;
-				document.getElementById("projectAllView").innerHTML = tableElement;
-			};
-			xhttp.open( "GET", "probonoProjectAll");
-			xhttp.send();
-		}
-
-
-		//2. 재능 기부 프로젝트에 참여중인 기부자 모두 검색
-		function allActivistView(){
-			
-			const xhttp = new XMLHttpRequest();
-			xhttp.onload = function() {
-				let data = JSON.parse(this.responseText);
-				
-				let tableElement =`
-					<table border="1">
-					<tr><th>activist_id</th><th>name</th><th>major</th></tr>`;
-					
-					for (let i in data){
-						tableElement = tableElement + `<tr>
-					 		<td><a href="#" onclick = "activistOneView('${data[i].id}')">${data[i].id}</a></td>
-					 		<td>${data[i].name}</td>
-					 		<td>${data[i].major}</td>
-					    </tr>`;
-					}
-					
-					tableElement = tableElement + `</table>`;
-				document.getElementById("allActivistView").innerHTML = tableElement;
-			};
-			xhttp.open("GET", "activistAll");
-			xhttp.send();
-		}		
-			
+ 	<!-- 지점 사진 삽입 -->
+    <h3 class="w3-padding-16 w3-text-light-grey">Branch Offices</h3>
+    <ul>
+ 	<img src="images/branch1.jpg" alt="Avatar" class="w3-left w3-square w3-margin-right" style="width:150px">
+	<p>Gwanghwamun Main Branch</p><br>
+	<img src="images/branch2.jpg" alt="Avatar" class="w3-left w3-square w3-margin-right" style="width:150px">
+	<p>Yeouido Branch</p><br>
+	<img src="images/branch3.jpg" alt="Avatar" class="w3-left w3-square w3-margin-right" style="width:150px">
+	<p>Sangam Branch</p><br>    
+	<img src="images/branch4.jpg" alt="Avatar" class="w3-left w3-square w3-margin-right" style="width:150px">
+	<p>City Hall Station Branch</p>
+    </ul></div>
+    <br><tr></tr><br><br>
 		
-		//3. 재능 기부자 가입하기
-		function insertUI(){
-			let insertUI = `
-				<table border="1">
-					<tr>
-						<td>id</td><td><input type="text" id="id"></td>
-					</tr>
-					<tr>
-				 		<td>name</td><td><input type="text" id="name"></td>
-					</tr>
-					<tr>	
-						<td>pw</td><td><input type="password" id="password"></td>
-				 	</tr>
-				 	<tr>
-				 		<td>major</td><td><input type="text" id="major"></td>
-				 	</tr>
-				 	<tr>
-				 		<td colspan="2">
-				 			<button onclick="activistInsert()"/>가입</button>
-				 			<input type="reset" value="취소">
-				 		</td>
-				 	</tr>
-				</table>`;
-				
-			document.getElementById("insertUiView").innerHTML = insertUI;
-		}//end of insertUI()
+   
+       
+    <!-- Grid for pricing tables -->
+    <!-- <h3 class="w3-padding-16 w3-text-light-grey">Membership Grade</h3>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16">Provided Sportswear</li>
+          <li class="w3-padding-16">Locker Access</li>
+      <li class="w3-padding-16">Shower Facility Available</li>
+      <li class="w3-padding-16">Access to 100+ Exercise Equipment</li>
+          <li class="w3-padding-16">
+            <h2>$ 18</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="login.html">Sign Up </a></button>
+          </li>
+        </ul>
+      </div>
 
+      <div class="w3-half">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
+      <li class="w3-padding-16">Includes Basic Grade Benefits</li>
+      <li class="w3-padding-16">Access to Steam Sauna</li>
+      <li class="w3-padding-16">Free Personal Training Session(1 serving)</li>
+      <li class="w3-padding-16">Complimentary Drinks (2 servings)</li>
+          <li class="w3-padding-16">
+            <h2>$ 30</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black"><a href="login.html">Sign Up </a></button>
+          </li>
+        </ul>
+      </div>
+    End Grid/Pricing tables
+    </div> -->
+    
+    <!-- Testimonials -->
+    <h3 class="w3-padding-24 w3-text-light-grey">Expert Trainers</h3>  
+    <img src="images/teac1.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:120px">
+    <p><span class="w3-large w3-margin-right">Chris Bums.</span> Mr.Olimpia.</p>
+    <p>Never give up.</p><br>
+    
+    <img src="images/teac2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:120px">
+    <p><span class="w3-large w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
+    <p>No one is better than us.</p><br>
+    
+    <img src="images/tech3.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:170px">
+    <p><span class="w3-large w3-margin-right">Sungbin Yoon.</span> Gold Medal at Olympic skeleton.</p>
+    <p>If you think, look, and work hard, it will come true.</p><br>
+    
+    <img src="images/teac4.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:170px">
+    <p><span class="w3-large w3-margin-right">Daeho Lee.</span> Gold Medal at baseball.</p>
+    <p>If your feet are slow, you can just hit a home run.</p>
+  <!-- End About Section -->
+  </div>
+  
+    <div class="w3-padding-64 w3-content" id="photos">
+    <h2 class="w3-text-light-grey">상암 DMC점</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <!-- Grid for photos -->
+    <div id = "drinkMenuView" class="w3-row-padding" style="margin:0 -16px"></div>
+    <div align="center"><button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="placeOrder()">주문하기</button></div>
+  <!-- End Portfolio Section -->
+  </div>
 
-		//3. 재능 기부자 가입하기 클릭시 HTML에 동적으로 그려지는 html에서 호출하는 js 함수
-		function activistInsert(){
-			let insertQueryString = `id=${document.getElementById("id").value}&name=${document.getElementById("name").value}&password=${document.getElementById("password").value}&major=${document.getElementById("major").value}`;
-	
-			const xhttp = new XMLHttpRequest();		
+  <!-- Contact Section -->
+  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+    <h2 class="w3-text-light-grey">LOG IN</h2>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> World Cup buk-ro, Mapo-gu, Seoul</p>
+      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +82 1020519545</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: help@woorifisa.com</p>
+    </div><br>
+        <form action="memberlogin" method="post">
+      <p><input id="loginId" class="w3-input w3-padding-16" type="text" placeholder="ID" required name="loginId"></p>
+      <p><input id="password" class="w3-input w3-padding-16" type="password" placeholder="PASSWORD" required name="password"></p>
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> LOG IN
+        </button>
+      </p>
+    </form><br><br><br><br><br><br><br>
+    
+
+   	 <script>
+	  
+	  $(function() {
+			const xhttp = new XMLHttpRequest();
 			xhttp.onload = function() {			
-				alert(this.responseText);
-			};
-			
-			xhttp.open("POST", "activistInsert");
-			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhttp.send(insertQueryString);
-		}
-	
-	
-	//기부자 한명 정보 검색시 호출되는 함수
-	function activistOneView(v){		
-		const xhttp = new XMLHttpRequest();		
-		xhttp.onload = function() {			
-			let data = JSON.parse(this.responseText);
-			
-			let tableElement =`
-				선택한 기부자 정보 <br>	
-				<table border="1">
-					<tr><th>activist_id</th><th>name</th><th>major</th></tr>
-					<tr>
-						<td>${data.id}</td>
-				 		<td>${data.name}</td>
-				 		<td>${data.major}</td>
-			 		</tr>
-				</table>`;
+		        const data = JSON.parse(this.responseText);
+		        generateMenu(data);
+	        };
 
-			document.getElementById("activistOneView").innerHTML = tableElement;
-		};
-		
-		xhttp.open( "GET", "activist?id="+v);
-		xhttp.send();
-	}	
+			xhttp.open("GET", "drinkMenu");
+			xhttp.send();
+			
+	      function generateMenu(data) {
+ 	  		const container = $("#drinkMenuView");
+	        
+ 	  		data.forEach(item => {
+	          const menuItemHTML = `
+	            <div class="w3-half w3-margin-bottom">
+	              <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+	                <li class="w3-dark-grey w3-xlarge w3-padding-32">${item.name}</li>
+	                <li><img src="${item.imgLink}" style="width:100%"><br> <h2>${item.price}원</h2></li>
+	                <li class="w3-light-grey w3-padding-24">
+	                  <button class="w3-button w3-white w3-padding-large w3-hover-black" onclick="cartInsert('${item.id}')">담기</button>
+	                </li>
+	              </ul>
+	            </div>
+	          `;
+	          container.append(menuItemHTML);
+	        });
+	      }
+		});
+
+	function cartInsert(id){
+		console.log(id);
+		/* let insertQueryString = `id=${document.getElementById("id").value}&memberId=${document.getElementById("memberId").value}&drinkId=${document.getElementById("drinkId").value}`; */
+		let insertQueryString = `memberId=2&drinkId=${id}`;
+		/* let insertQueryString = `memberId=2&drinkId=${drinkId}`; */
 	
-	</script>
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function() {			
+			alert(this.responseText);
+		};
+		xhttp.open("POST", "cartInsert");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send(insertQueryString);
+	}
+	
+	function placeOrder() {
+		let insertQueryString = `memberId=2`;
+	
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function() {			
+			alert(this.responseText);
+		};
+		xhttp.open("POST", "order");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send(insertQueryString);
+	}
+</script>
+    
+    <div class="elementor-widget-container">
+			<style>
+/* PC 로그인 버튼 위치 */
+.kakaoLogin {
+    position: fixed;
+    z-index: 99;
+    right: 30px; /* 화면 오른쪽으로부터의 거리, 숫자만 입력 */
+    bottom: 900px; /* 화면 아래쪽으로부터의 거리, 숫자만 입력 */
+}				
+				
+/* PC 카카오톡 채널 버튼 위치 */
+.kakaoChatPc {
+    position: fixed;
+    z-index: 999;
+    right: 30px; /* 화면 오른쪽으로부터의 거리, 숫자만 입력 */
+    bottom: 90px; /* 화면 아래쪽으로부터의 거리, 숫자만 입력 */
+}
+/* 모바일 카카오톡 채널 버튼 위치 */
+.kakaoChatMob {
+    position: fixed;
+    z-index: 999;
+    right: 30px; /* 화면 오른쪽으로부터의 거리, 숫자만 입력 */
+    bottom: 120px; /* 화면 아래쪽으로부터의 거리, 숫자만 입력 */
+}
+
+</style>
+
+<!-- PC 카카오톡 상담 버튼(카톡으로 알림,, 챗봇 연결) -->
+<a href="http://pf.kakao.com/_rycwG/chat" class="kakaoChatPc hidden-md hidden-sm hidden-xs">
+    <img src="http://woorifisa.com/wp-content/uploads/2023/10/kakaotalk.png" width="58px" height="58px">
+</a>
+
+<!-- 카카오 로그인 -->
+    <div>
+        <h1>카카오 로그인</h1>
+        <a href="javascript:kakaoLogin()"><img src="/images/kakao_login.png"> style="width: 200px"></a>
+        <button>카카오 계정으로 로그인</button>
+    </div>
+
+   <!-- JavaScript 코드 -->
+<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+    Kakao.init('99b4852510033be3764165ffeaf1fbbe');
+    console.log(kakao.isInitialized() );
+
+       // 카카오 로그인 버튼 클릭 시 실행될 함수
+        document.getElementById('kakao-login-btn').addEventListener('click', function() {
+            Kakao.Auth.login({
+                success: function(authObj) {
+                    alert('로그인 성공\n' + JSON.stringify(authObj));
+                },
+                fail: function(err) {
+                    alert('로그인 실패\n' + JSON.stringify(err));
+                }
+            });
+        });
+    </script>
+
+<input type="button" />
+<input type="button" value="원하는 문구" onclick="location.href='원하는 url'"/>
+
+<!-- onclick="history.back()" (js 이용해서 뒤로 가기도 가능)  -->
+
+<!-- 모바일 카카오톡 상담 버튼 
+<a href="javascript:void kakaoChatStart()" class="kakaoChatMob hidden-lg">
+    <img src="http://woorifisa.com/wp-content/uploads/2023/10/kakaotalk.png" width="38px" height="38px">
+</a> -->
+
+<!-- 카카오톡 채널 스크립트 -->
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript">
+    Kakao.init('99b4852510033be3764165ffeaf1fbbe'); // 사용할 앱의 JavaScript키를 입력해 주세요.
+    function kakaoChatStart() {
+        Kakao.Channel.chat({
+            channelPublicId: '_ZeUTxl' // 카카오톡 채널 홈 URL에 명시된 ID를 입력합니다.
+        });
+    }
+</script>
+		</div>
+    
+    <!-- <p>Let's get in touch. Send me a message:</p>
+
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form> -->
+  <!-- End Contact Section -->
+  </div>
+  
+    <!-- Footer 링크 삽입-->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <a href="https:fb.com"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+    <a href="https:instagram.com"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    <a href="https://github.com/fisa-gym/trainer-project"><i class="fa fa-github w3-hover-opacity"></i></a>
+    <a href="https://linkedin.com"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+    <!-- <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p> -->
+    <p class="w3-medium">© <a href="https://woorifisa.com" ' target="_blank" class="w3-hover-text-green"> Copyright 2023 WOORIFIS. All right reserved.</a></p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
 </body>
 </html>
