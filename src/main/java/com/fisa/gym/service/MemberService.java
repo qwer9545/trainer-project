@@ -19,8 +19,8 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
     
-    public boolean login(LoginRequest req) {
-        Optional<Member> optionalMember = memberRepository.findByMemberLoginId(req.getLoginId());
+    public boolean login(String loginId,String password) {
+        Optional<Member> optionalMember = memberRepository.findByMemberLoginId(loginId);
         // loginId와 일치하는 User가 없으면 null return
         if(optionalMember.isEmpty()) {
             return false;
@@ -29,7 +29,7 @@ public class MemberService {
         Member member = optionalMember.get();
         
         // 찾아온 User의 password와 입력된 password가 다르면 null return
-        if(!member.getMemberLoginPassword().equals(req.getPassword())) {
+        if(!member.getMemberLoginPassword().equals(password)) {
             return false;
         }
         System.out.println("pwpass");

@@ -326,6 +326,18 @@ button[onclick="loginPopup()"] {
       <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +82 1020519545</p>
       <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: help@woorifisa.com</p>
     </div><br>
+    
+    
+    
+    
+    
+    
+    
+    <!--  로그인 ---------------------------------->
+    
+    
+    
+    
         <form action="memberlogin" method="post">
       <p><input id="loginId" class="w3-input w3-padding-16" type="text" placeholder="ID" required name="loginId"></p>
       <p><input id="password" class="w3-input w3-padding-16" type="password" placeholder="PASSWORD" required name="password"></p>
@@ -334,8 +346,31 @@ button[onclick="loginPopup()"] {
           <i class="fa fa-paper-plane"></i> LOG IN
         </button>
       </p>
-    </form><br><br><br><br><br><br><br>
-    
+    </form><br>
+    <h2>Welcome, <span id="usernameSpan"></span>!</h2>
+    <br><br><br><br><br><br>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            checkLoginStatus();
+        });
+        function checkLoginStatus() {
+            // 세션에서 사용자 정보를 가져옵니다.
+            var memberLoginId = sessionStorage.getItem("memberLoginId");
+            // 사용자 정보가 있으면 form을 숨깁니다.
+            if (memberLoginId) {
+                document.getElementById("loginForm").style.display = "none";
+            } else {
+                document.getElementById("loginForm").style.display = "block";
+            }
+        }
+        
+        var loginId = sessionStorage.getItem("loginId");
+        if (loginId) {
+            document.getElementById("usernameSpan").innerText = loginId;
+        }
+    </script>
+        
+       
 
    	 <script>
 	  

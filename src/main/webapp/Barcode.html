@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>barcode</title>
+</head>
+<body>
+	
+	<button type="button">
+	  <img src="images/barcode.jpg" onclick="self.close()" >
+	</button>
+	
+	<div>
+	
+	<hr>
+	<a href="#" onclick="showdate()">membership</a><p>
+	<div id = "membershipView"></div>
+	
+	
+	
+	</div>
+	
+ 	 <script>
+ 	 
+ 	 function showdate(){
+			
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+				let data = JSON.parse(this.responseText);
+				
+				let tableElement =`
+					<table border="1">
+				
+					<tr>
+						<td>${data[0].membershipId}</td>
+				 		<td>${data[0].startDate}</td>
+				 		<td>${data[0].month}</td>
+				 		<td>${data[0].recentVisit}</td>
+				    </tr>
+				
+			 		</table>`;
+			 	
+				document.getElementById("datediffView").innerHTML = tableElement;
+			};
+			
+			xhttp.open( "Get", "membershipAll");
+			xhttp.send();
+		}
+		
+ 	
+ 	
+    </script> 
+ 	 
+</body>
+</html>
