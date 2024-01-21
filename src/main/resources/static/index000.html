@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            checkLoginStatus();
+        });
+        function checkLoginStatus() {
+            var username = sessionStorage.getItem("username");
+            if (username) {
+                document.getElementById("loginForm").style.display = "none";
+            } else {
+                document.getElementById("loginForm").style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Welcome, <span id="usernameSpan"></span>!</h2>
+    <form id="loginForm" method="post" action="/login">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+    <script>
+        var username = sessionStorage.getItem("username");
+        if (username) {
+            document.getElementById("usernameSpan").innerText = username;
+        }
+    </script>
+</body>
+</html>
