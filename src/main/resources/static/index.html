@@ -338,14 +338,15 @@ button[onclick="loginPopup()"] {
     
     
     
-        <form action="memberlogin" method="post">
+        <form action="memberlogin" method="post" id="loginForm">
       <p><input id="loginId" class="w3-input w3-padding-16" type="text" placeholder="ID" required name="loginId"></p>
-      <p><input id="password" class="w3-input w3-padding-16" type="password" placeholder="PASSWORD" required name="password"></p>
+      <p><input id="c" class="w3-input w3-padding-16" type="password" placeholder="PASSWORD" required name="password"></p>
       <p>
         <button class="w3-button w3-light-grey w3-padding-large" type="submit">
           <i class="fa fa-paper-plane"></i> LOG IN
         </button>
       </p>
+      
     </form><br>
     <h2>Welcome, <span id="usernameSpan"></span>!</h2>
     <br><br><br><br><br><br>
@@ -353,25 +354,25 @@ button[onclick="loginPopup()"] {
         document.addEventListener("DOMContentLoaded", function() {
             checkLoginStatus();
         });
+        
         function checkLoginStatus() {
-            // 세션에서 사용자 정보를 가져옵니다.
-            var memberLoginId = sessionStorage.getItem("memberLoginId");
-            // 사용자 정보가 있으면 form을 숨깁니다.
-            if (memberLoginId) {
-                document.getElementById("loginForm").style.display = "none";
-            } else {
-                document.getElementById("loginForm").style.display = "block";
+            
+            var loginId = sessionStorage.getItem("loginId");
+            if (loginId) {
+                document.getElementById("usernameSpan").innerText = loginId;
             }
         }
         
-        var loginId = sessionStorage.getItem("loginId");
-        if (loginId) {
-            document.getElementById("usernameSpan").innerText = loginId;
-        }
-    </script>
+        
         
        
-
+    </script>
+        
+        
+        
+        
+       
+<!--------------------------------------------------- 음료 ---------------------------------------- -->
    	 <script>
 	  
 	  $(function() {
