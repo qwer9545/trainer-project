@@ -1,6 +1,8 @@
 package com.fisa.gym.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +19,8 @@ public class OrderController {
 
 	@PostMapping("/order")
 	protected String orderInsert(OrderDTO orderDTO, HttpSession session) throws Exception {
-		boolean result = orderService.insert(orderDTO);
-		return result ? "주문 완료" : "주문 실패";
+//		boolean result = orderService.insert(orderDTO);
+//		return result ? "주문 완료" : "주문 실패";
+		return orderService.insert(orderDTO);
 	}
 }
