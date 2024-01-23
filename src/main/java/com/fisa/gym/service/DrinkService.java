@@ -21,7 +21,7 @@ public class DrinkService {
 	private ModelMapper mapper = new ModelMapper();
 	
 	public List<DrinkDTO> getAllDrink() throws Exception {
-		List<Drink> drinkAll = drinkRepository.findAll();
+		Iterable<Drink> drinkAll = drinkRepository.findAll();
 		
 		List<DrinkDTO> drinkDTOAll = Arrays.asList(mapper.map(drinkAll, DrinkDTO[].class));
 		return drinkDTOAll;
